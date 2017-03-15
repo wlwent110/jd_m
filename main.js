@@ -186,6 +186,11 @@ var rSlide=function () {
 };
 window.onresize=function () {
     testScreen(slide);
+    clearInterval(time1);
+    ulScroll.style.left='0px';
+     time1=setInterval(function () {
+        autoplay();
+    },1500);
 
 }
 
@@ -217,11 +222,12 @@ $('#pj').on('touchend',function (e) {
     replyFun();
 })
 
-
+//判断手势226-254
 var windowHeight = $(window).height(),
     $body = $("body");
 
 $body.css("height", windowHeight);
+
 $("body").on("touchstart", function(e) {
 
 
@@ -229,6 +235,7 @@ $("body").on("touchstart", function(e) {
     startX = e.originalEvent.changedTouches[0].pageX,
         startY = e.originalEvent.changedTouches[0].pageY;
 });
+
 $("body").on("touchmove", function(e) {
 
     e.preventDefault();
