@@ -188,39 +188,49 @@ window.onresize=function () {
     testScreen(slide);
 
 }
-document.onclick=function (e) {
-    var e= e.target;
-    if((e.innerText=='详情')||(e.innerText=='商品')||(e.innerText=='评价')){
-        var active=document.getElementsByClassName('col-4 active')[0];
-        active.className='col-4';
-        e.className='col-4 active';
-    }
-    if(e.innerText=='商品'){
-        slide.style.display='inline-block';
-        replyF.style.display='none';
-        detailF.style.display='none';
-    }
-    if(e.innerText=='详情'){
-        slide.style.display='none';
-        replyF.style.display='none';
-        detailFun();
-    }
-    if(e.innerText=='评价'){
-        slide.style.display='none';
-        detailF.style.display='none';
-        replyFun();
-    }
-}
+
+$('#sp').on('touchend',function (e) {
+    e.preventDefault();
+    var active=document.getElementsByClassName('col-4 active')[0];
+    active.className='col-4';
+    e.originalEvent.changedTouches[0].target.className='col-4 active';
+    slide.style.display='inline-block';
+    replyF.style.display='none';
+    detailF.style.display='none';
+})
+$('#xq').on('touchend',function (e) {
+    e.preventDefault();
+    var active=document.getElementsByClassName('col-4 active')[0];
+    active.className='col-4';
+    e.originalEvent.changedTouches[0].target.className='col-4 active';
+    slide.style.display='none';
+    replyF.style.display='none';
+    detailFun();
+})
+$('#pj').on('touchend',function (e) {
+    e.preventDefault();
+    var active=document.getElementsByClassName('col-4 active')[0];
+    active.className='col-4';
+    e.originalEvent.changedTouches[0].target.className='col-4 active';
+    slide.style.display='none';
+    detailF.style.display='none';
+    replyFun();
+})
+
+
 var windowHeight = $(window).height(),
     $body = $("body");
 
 $body.css("height", windowHeight);
 $("body").on("touchstart", function(e) {
+
+
     e.preventDefault();
     startX = e.originalEvent.changedTouches[0].pageX,
         startY = e.originalEvent.changedTouches[0].pageY;
 });
 $("body").on("touchmove", function(e) {
+
     e.preventDefault();
     moveEndX = e.originalEvent.changedTouches[0].pageX,
         moveEndY = e.originalEvent.changedTouches[0].pageY,
@@ -235,3 +245,4 @@ $("body").on("touchmove", function(e) {
     }
 
 });
+
