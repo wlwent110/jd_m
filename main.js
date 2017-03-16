@@ -194,6 +194,7 @@ window.onresize=function () {
 
 }
 
+
 $('#sp').on('touchend',function (e) {
     e.preventDefault();
     var active=document.getElementsByClassName('col-4 active')[0];
